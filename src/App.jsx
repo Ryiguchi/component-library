@@ -1,46 +1,31 @@
-import Carousel from './components/carousel.component';
-import Button from './components/button-scaling/button-scaling.component';
+import { Routes, Route } from 'react-router-dom';
 
 import './App.css';
+import ImageCarousel from './components/image-carousel/image-carousel.conponent';
+import ProgressBarCrumbs from './components/progressbar-crumbs/progressbar-crumbs.component';
+import ProgressBarGradient from './components/progressbar-gradient/progressbar-gradient.component';
+import Buttons from './Routes/buttons/buttons.component';
+import Header from './Routes/header/header.component';
+import Progress from './Routes/progress/progress.component';
+import Lightbox from './Routes/lightbox/lightbox.component';
+import { GlobalStyle } from './globalStyles';
 
-const data = [
-  '/src/assets/img-1.webp',
-  '/src/assets/img-2.webp',
-  '/src/assets/img-3.webp',
-  '/src/assets/img-4.webp',
-  '/src/assets/img-5.webp',
-  '/src/assets/img-6.webp',
-  '/src/assets/img-5.webp',
-  '/src/assets/img-6.webp',
-  '/src/assets/img-5.webp',
-  '/src/assets/img-6.webp',
-];
-
-export const CAROUSEL_TYPES = {
-  IMAGES: 'images',
-};
-
-const config = {
-  size: {
-    carouselSize: {
-      width: '300px',
-      height: '300px',
-    },
-    itemSize: {
-      height: '25px',
-      width: '25px',
-    },
-  },
-
-  data: data,
-  type: CAROUSEL_TYPES.IMAGES,
+const barGradientOptions = {
+  width: 500,
 };
 
 function App() {
   return (
-    <div>
-      <Button />
-    </div>
+    <>
+      <GlobalStyle />
+      <Routes>
+        <Route path="*" element={<Header />}>
+          <Route path="buttons" element={<Buttons />} />
+          <Route path="progress" element={<Progress />} />
+          <Route path="lightbox" element={<Lightbox />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 

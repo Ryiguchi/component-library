@@ -1,4 +1,4 @@
-import { Small, Default, Large, XLarge } from './button-mixins';
+import { Small, Default, Large, XLarge } from './button.mixins';
 
 export const BUTTON_SIZES = {
   SMALL: Small,

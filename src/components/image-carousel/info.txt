@@ -1,0 +1,23 @@
+options:
+
+width: string representing 'px'. Default = 400
+numthumbs: number of images shown on the bottom. Default = 0
+images: String - url to images
+
+const options = {
+  numthumbs: 8,
+  images: data,
+  width: '500',
+  border: {
+    hasBorder: true,
+    color: BUTTON_COLORS.CHROME_YELLOW,
+    style: BORDER_STYLES.GAP,
+    width: BORDER_WIDTH.DEFAULT,
+  },
+  caret: {
+    style: CARET_STYLE.SQUARE,
+    size: CARET_SIZE.LARGE,
+    border: true,
+    position: CARET_POSITION.MIDDLE,
+  },
+};
