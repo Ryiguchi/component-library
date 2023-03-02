@@ -1,6 +1,6 @@
 import Container from '../../components/container/container.component';
-import ProgressBarCrumbs from '../../components/progressbar-crumbs/progressbar-crumbs.component';
-import ProgressBarGradient from '../../components/progressbar-gradient/progressbar-gradient.component';
+import ProgressBarCrumbs from '../../components/progress-bars/progressbar-crumbs/progressbar-crumbs.component';
+import ProgressBarGradient from '../../components/progress-bars/progressbar-gradient/progressbar-gradient.component';
 
 import { BUTTON_COLORS } from '../../components/all-buttons/button.utilities/button.types';
 
@@ -13,7 +13,7 @@ export const crumbsOptions = {
 const Progress = () => {
   return (
     <Container>
-      <ProgressBarGradient color={BUTTON_COLORS.DARK_PERIWINKLE} />
+      <ProgressBarGradient width={500} color={BUTTON_COLORS.CHROME_YELLOW} />
       <ProgressBarCrumbs options={crumbsOptions} />
     </Container>
   );

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Button3D from '../../components/all-buttons/button-3d/button-3d.component';
 import ButtonFading from '../../components/all-buttons/button-fading/button-fading.component';
 import ButtonInverted from '../../components/all-buttons/button-inverted/button-inverted.component';
@@ -39,7 +40,7 @@ const optionsDefaultScaling = {
 const optionsButtonScalingGhost = {
   size: BUTTON_SIZES.DEFAULT,
   width: BUTTON_WIDTH.FIT,
-  borderRadius: BORDER_RADIUS.MAX,
+  borderRadius: BORDER_RADIUS.DEFAULT,
   uppercase: BUTTON_TEXT_STYLE.UPPERCASE,
 };
 

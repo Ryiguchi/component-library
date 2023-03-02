@@ -1,16 +1,21 @@
-const DesktopNav = ({ navItems, color }) => {
+import { Link } from 'react-router-dom';
+import { NavbarContainer, NavbarItem } from './navbar-underline.styles';
+
+const NavbarUnderline = ({
+  options,
+  options: { items, color, gap, fontSize },
+}) => {
   return (
-    <ul className="flex gap-12 items-center ">
-      {navItems.map((item, i) => (
-        <li
-          key={i}
-          className={`transition-all duration-300 cursor-pointer hover:border-b-2 hover:border-[${color}]  border-b-2 border-white h-full flex items-center`}
-        >
-          {item}
-        </li>
+    <NavbarContainer options={options}>
+      {items.map((item, i) => (
+        <Link to={item[1]} key={i}>
+          <NavbarItem color={color} key={i}>
+            {item[0]}
+          </NavbarItem>
+        </Link>
       ))}
-    </ul>
+    </NavbarContainer>
   );
 };
 
-export default DesktopNav;
+export default NavbarUnderline;

@@ -4,8 +4,9 @@ import { DefaultButtonStyles } from '../button.utilities/button.default.style';
 import { BUTTON_COLOR_EFFECTS } from '../button.utilities/button.types';
 
 export const StyledButtonFading = styled(DefaultButtonStyles)`
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.25),
+    0px 10px 10px rgba(0, 0, 0, 0.22), inset 2px -6px 6px rgba(0, 0, 0, 0.22),
+    inset -2px 0 6px rgba(0, 0, 0, 0.22);
   ${({ options: { backgroundcolor, textcolor, colorEffect } }) => {
     const darker = getTint(backgroundcolor);
     const lighter = getShade(backgroundcolor);
