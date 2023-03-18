@@ -1,5 +1,5 @@
 # component-library
-[https://github.com/Ryiguchi/component-library](https://github.com/Ryiguchi/component-library)  
+[https://grand-ganache-366fbc.netlify.app/input](https://grand-ganache-366fbc.netlify.app/input)  
 ## Description  
 A few components that I've made for various projects.
 ## Includes  
