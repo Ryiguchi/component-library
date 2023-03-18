@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MainContainer = styled.div`
   position: relative;
-  width: 100%;
+  width: ${({ width }) => width};
   height: 20px;
 
   display: flex;
@@ -21,7 +21,7 @@ export const BarContainer = styled.div`
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.15), inset 0 -1px 3px rgba(0, 0, 0, 0.3),
     0 0 2px rgba(0, 0, 0, 0.15);
 
-  width: 98%;
+  width: 100%;
   height: 5px;
 `;
 

@@ -1,22 +1,24 @@
 import styled from 'styled-components';
+import { getColor } from '../all-buttons/button.utilities/button.mixins';
 import { BORDER_STYLES, CARET_POSITION } from './image-carousel.types';
 
 export const BorderWrapper = styled.div`
-  ${({ border: { hasBorder, color, style, width } }) => {
+  width: ${({ width }) => `${width}px;`};
+  ${({ hasBorder, borderColor, borderStyle, borderWidth }) => {
     if (!hasBorder) return `border: none;`;
-    if (style === BORDER_STYLES.GAP)
+    if (borderStyle === BORDER_STYLES.GAP)
       return `
-    border: ${width} solid rgba(${color});
-    padding: ${width};
+    border: ${borderWidth} solid rgba(${getColor(borderColor)});
+    padding: ${borderWidth};
     `;
   }}
 `;
 
 export const CarouselContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: ${({ width }) => `${width}px;`};
   height: 100%;
   overflow: hidden;
 `;
@@ -204,38 +206,38 @@ export const ControllerContainer = styled.div`
 export const CaretIcon = styled.img`
   position: absolute;
   cursor: pointer;
-  ${({ options: { position } }) =>
-    position === CARET_POSITION.MIDDLE ? `top: 50%;` : `bottom: 0; `}
+  ${({ caretPosition }) =>
+    caretPosition === CARET_POSITION.MIDDLE ? `top: 50%;` : `bottom: 0; `}
   background-color: rgba(255, 255, 255, 0.8);
 
-  ${({ options: { size } }) => {
-    if (size === 'small')
+  ${({ caretSize }) => {
+    if (caretSize === 'small')
       return `
       height: 16px;
       padding: 4px;
     `;
 
-    if (size === 'default')
+    if (caretSize === 'default')
       return `
       height: 20px;
       padding: 8px;
     `;
 
-    if (size === 'large')
+    if (caretSize === 'large')
       return `
       height: 24px;
       padding: 10px;
     `;
 
-    if (size === 'xLarge')
+    if (caretSize === 'xLarge')
       return `
       height: 36px;
       padding: 12px;
     `;
   }}
 
-  border-radius: ${({ options: { style } }) => style};
-  border: ${({ options: { border } }) => border && `1px solid #000;`};
+  border-radius: ${({ caretStyle }) => caretStyle};
+  border: ${({ caretBorder }) => caretBorder && `1px solid #000;`};
 `;
 
 export const CaretLeftIcon = styled(CaretIcon)`

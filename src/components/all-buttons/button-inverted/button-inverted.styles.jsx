@@ -1,16 +1,18 @@
 import styled from 'styled-components';
 import { StyledButtonFading } from '../button-fading/button-fading.styles';
-import { getShade, getTint } from '../button.utilities/button.mixins';
+import { getColor } from '../button.utilities/button.mixins';
 
 export const StyledButtonInverted = styled(StyledButtonFading)`
-  ${({ options: { backgroundcolor, textcolor } }) => `
-    background-color: rgba(${textcolor});
-    color: rgba(${backgroundcolor});
+  ${({ backgroundColor, textColor }) => `
+    background-color: rgba(${getColor(textColor)});
+    color: rgba(${getColor(backgroundColor)});
 
 
+    color: #333;
     &:hover {
-      background-color: rgba(${backgroundcolor});
-      color: rgba(${textcolor});
+      background-color: rgba(${getColor(backgroundColor)});
+      color: rgba(${getColor(textColor)});
+      color: #888;
     }
   `}
 `;

@@ -1,5 +1,5 @@
 import React from 'react';
-import NavbarUnderline from '../../navbars/navbar-underline/navbar-underline.component';
+import NavbarUnderline from '../../components/navbars/navbar-underline/navbar-underline.component';
 import { Container, NavbarContainer } from './navbars.styles';
 
 const navItems = [

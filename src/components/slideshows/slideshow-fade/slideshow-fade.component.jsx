@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
+import { data } from '../../../assets/test-data/images';
 
 import { Container, ImgContainer, StyledImage } from './slideshow-fade.styles';
 
 const SlideshowFade = ({
-  images,
+  images = data,
   interval = 5,
   orientation = 'landscape',
   border = true,

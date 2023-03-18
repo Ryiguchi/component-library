@@ -14,7 +14,7 @@ export const StyledButtonScalingGhost = styled(DefaultButtonStyles)`
   border: ${`1px solid rgba(${BUTTON_COLORS.BLACK})`};
   border: none;
 
-  ${({ options: { size } }) => {
+  ${({ size }) => {
     if (size === BUTTON_SIZES.SMALL) return GhostSmall;
     if (size === BUTTON_SIZES.DEFAULT) return GhostDefault;
     if (size === BUTTON_SIZES.LARGE) return GhostLarge;

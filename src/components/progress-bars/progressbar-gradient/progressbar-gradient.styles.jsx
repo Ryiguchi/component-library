@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { getColor } from '../../all-buttons/button.utilities/button.mixins';
 
 export const ProgressBarContainer = styled.div`
   position: relative;
-  width: 300px;
+  width: ${({ width }) => width};
   height: 30px;
 `;
 
@@ -24,6 +25,7 @@ export const Chevrons = styled.div`
   background-image: linear-gradient(#eee, #eee);
 
   ${({ color, num, totalNum, percent }) => {
+    const rgbColor = getColor(color);
     const numCompleted = Math.trunc((totalNum * percent) / 100) - 1;
     if (num > numCompleted) return;
     const half = totalNum / 2;
@@ -31,21 +33,21 @@ export const Chevrons = styled.div`
       // increase x to lighten the lightest light:  x - (num * 0.8) / half
       const lighterValue = 0.9 - (num * 0.8) / half;
       const darkerValue = 0.8 - ((num + 1) * 0.8) / half;
-      const lighterTint = getLighterTint(color, lighterValue);
-      const darkerTint = getLighterTint(color, darkerValue);
+      const lighterTint = getLighterTint(rgbColor, lighterValue);
+      const darkerTint = getLighterTint(rgbColor, darkerValue);
       return `background-image: linear-gradient(to right, rgb(${lighterTint}), rgb(${darkerTint}))`;
     }
     if (num > half) {
       // increase x to increase the darkest dark: 1 + ((num - half) * x) / half
       const lighterValue = 1 + ((num - half) * 0.6) / half;
       const darkerValue = 1 + ((num - half + 1) * 0.6) / half;
-      const lighterShade = getDarkerShade(color, lighterValue);
-      const darkerShade = getDarkerShade(color, darkerValue);
+      const lighterShade = getDarkerShade(rgbColor, lighterValue);
+      const darkerShade = getDarkerShade(rgbColor, darkerValue);
       return `background-image: linear-gradient(to right, rgb(${lighterShade}), rgb(${darkerShade}))`;
     }
     if (num === half)
       return `
-      background-image: linear-gradient(to right, rgb(${color}), rgb(${color}))
+      background-image: linear-gradient(to right, rgb(${rgbColor}), rgb(${rgbColor}))
     `;
   }};
 `;

@@ -11,7 +11,7 @@ import { BUTTON_SIZES } from '../button.utilities/button.types';
 export const StyledButtonScalingDarkModeGlow = styled(
   StyledButtonScalingDarkMode
 )`
-  ${({ options: { size } }) => {
+  ${({ size }) => {
     if (size === BUTTON_SIZES.SMALL) return DarkModeGlowScalingSmall;
     if (size === BUTTON_SIZES.DEFAULT) return DarkModeGlowScalingDefault;
     if (size === BUTTON_SIZES.LARGE) return DarkModeGlowScalingLarge;

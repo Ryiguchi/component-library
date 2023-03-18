@@ -9,17 +9,25 @@ import { StyledButton3D } from './button-3d.styles';
 
 const Button3D = ({
   children,
-  options,
-  options: {
-    size = BUTTON_SIZES.DEFAULT,
-    textcolor = BUTTON_COLORS.WHITE,
-    backgroundcolor = BUTTON_COLORS.MEGAMAN_BLUE,
-    width = BUTTON_WIDTH.FIT,
-    borderRadius = BORDER_RADIUS.DEFAULT,
-    uppercase = BUTTON_TEXT_STYLE.UPPERCASE,
-  },
+  size = BUTTON_SIZES.DEFAULT,
+  textColor = BUTTON_COLORS.WHITE,
+  backgroundColor = BUTTON_COLORS.MEGAMAN_BLUE,
+  width = BUTTON_WIDTH.FIT,
+  borderRadius = BORDER_RADIUS.DEFAULT,
+  textStyle = BUTTON_TEXT_STYLE.UPPERCASE,
 }) => {
-  return <StyledButton3D options={options}>press here</StyledButton3D>;
+  return (
+    <StyledButton3D
+      size={size}
+      textColor={textColor}
+      backgroundColor={backgroundColor}
+      width={width}
+      borderRadius={borderRadius}
+      textStyle={textStyle}
+    >
+      {children}
+    </StyledButton3D>
+  );
 };
 
 export default Button3D;

@@ -1,3 +1,4 @@
+import { BUTTON_COLORS } from '../../all-buttons/button.utilities/button.types';
 import {
   Chevrons,
   ChevronsContainer,
@@ -5,13 +6,11 @@ import {
 } from './progressbar-gradient.styles';
 
 const ProgressBarGradient = ({
-  width = 400,
-  numItems = 10,
   percent = 100,
-  currentItem = 4,
-  color = 'green',
+  color = BUTTON_COLORS.GREEN,
+  numCheverons = 20,
+  width = '400px',
 }) => {
-  const numCheverons = 20;
   const chevronArray = [];
   for (let i = 0; i < numCheverons; i++) {
     chevronArray.push(
@@ -26,7 +25,7 @@ const ProgressBarGradient = ({
   }
 
   return (
-    <ProgressBarContainer>
+    <ProgressBarContainer width={width}>
       <ChevronsContainer>{chevronArray}</ChevronsContainer>
     </ProgressBarContainer>
   );

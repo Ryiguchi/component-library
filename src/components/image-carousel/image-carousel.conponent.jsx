@@ -1,9 +1,5 @@
 import { useState } from 'react';
-import { StyledButton3D } from '../all-buttons/button-3d/button-3d.styles';
-import {
-  BUTTON_COLORS,
-  BUTTON_WIDTH,
-} from '../all-buttons/button.utilities/button.types';
+import { BUTTON_COLORS } from '../all-buttons/button.utilities/button.types';
 
 import {
   CarouselContainer,
@@ -22,21 +18,31 @@ import {
 
 import CaretLeft from '../../assets/caret-left.svg';
 import CaretRight from '../../assets/caret-right.svg';
-import { CARET_STYLE } from './image-carousel.types';
+import {
+  BORDER_STYLES,
+  BORDER_WIDTH,
+  CARET_POSITION,
+  CARET_SIZE,
+  CARET_STYLE,
+} from './image-carousel.types';
+import { data } from '../../assets/test-data/images';
 
 const ImageCarousel = ({
-  options: {
-    images,
-    width = 400,
-    numthumbs = 0,
-    border,
-    caret = CARET_STYLE.CIRCLE,
-  },
+  images = data,
+  width = 400,
+  numthumbs = 6,
+  hasBorder = true,
+  borderColor = BUTTON_COLORS.MIDNIGHT_GREY,
+  borderStyle = BORDER_STYLES.GAP,
+  borderWidth = BORDER_WIDTH.DEFAULT,
+  caretPosition = CARET_POSITION.MIDDLE,
+  caretSize = CARET_SIZE.DEFAULT,
+  caretStyle = CARET_STYLE.CIRCLE,
+  caretBorder = true,
 }) => {
   const [currentImg, setCurrentImg] = useState(0);
   const [isAnimating, setIsAnimating] = useState('false');
   const lastImgIndex = images.length - 1;
-  const { color } = border;
 
   const changeSlide = direction => {
     direction === 'right' && setIsAnimating('slide-left');
@@ -67,8 +73,14 @@ const ImageCarousel = ({
   };
 
   return (
-    <BorderWrapper border={border}>
-      <CarouselContainer width={width}>
+    <BorderWrapper
+      hasBorder={hasBorder}
+      borderColor={borderColor}
+      borderStyle={borderStyle}
+      borderWidth={borderWidth}
+      width={width}
+    >
+      <CarouselContainer>
         <CarouselElementContainer width={width}>
           <CarouselElementLeft
             src={images[getPreviousImg()]}
@@ -92,13 +104,19 @@ const ImageCarousel = ({
             src={CaretLeft}
             alt="Previous Image"
             onClick={() => changeSlide('left')}
-            options={caret}
+            caretPosition={caretPosition}
+            caretSize={caretSize}
+            caretStyle={caretStyle}
+            caretBorder={caretBorder}
           />
           <CaretRightIcon
             src={CaretRight}
             alt="Next Image"
             onClick={() => changeSlide('right')}
-            options={caret}
+            caretPosition={caretPosition}
+            caretSize={caretSize}
+            caretStyle={caretStyle}
+            caretBorder={caretBorder}
           />
         </CarouselElementContainer>
 
@@ -116,7 +134,7 @@ const ImageCarousel = ({
                   numthumbs={numthumbs}
                   key={image}
                   displaying={i === currentImg ? true : false}
-                  color={color}
+                  borderColor={borderColor}
                   onClick={() => goToImage(i)}
                 >
                   <Thumbs

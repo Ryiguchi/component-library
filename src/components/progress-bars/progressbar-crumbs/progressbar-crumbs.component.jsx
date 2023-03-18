@@ -7,12 +7,11 @@ import {
 } from './progressbar-crumbs.styles';
 
 const ProgressBarCrumbs = ({
-  options: {
-    numItems = 10,
-    numCompleted = 7,
-    currentItem = 4,
-    barColor = 'green',
-  },
+  numItems = 10,
+  numCompleted = 7,
+  currentItem = 4,
+  barColor = 'green',
+  width = '600px',
 }) => {
   const percentCompleted = (numCompleted / (numItems - 1)) * 100;
 
@@ -28,7 +27,7 @@ const ProgressBarCrumbs = ({
   }
 
   return (
-    <MainContainer>
+    <MainContainer width={width}>
       <DotsContainer>{dots}</DotsContainer>
       <BarContainer>
         <Bar percentCompleted={percentCompleted} barColor={barColor} />

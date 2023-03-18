@@ -10,7 +10,7 @@ import { BUTTON_SIZES } from '../button.utilities/button.types';
 
 export const StyledButtonScalingDefault = styled(DefaultButtonStyles)`
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
-  ${({ options: { size } }) => {
+  ${({ size }) => {
     if (size === BUTTON_SIZES.SMALL) return ScalingSmall;
     if (size === BUTTON_SIZES.DEFAULT) return ScalingDefault;
     if (size === BUTTON_SIZES.LARGE) return ScalingLarge;

@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+import { BUTTON_COLORS } from './button.types';
 
 export const Small = css`
   font-size: 10px;
@@ -232,34 +233,34 @@ export const DarkModeGlowScalingXLarge = css`
 `;
 
 export const ColorShadowButtonDefault = css`
-  ${({ options: { backgroundcolor } }) => `
+  ${({ backgroundColor }) => `
     &:hover {
-        box-shadow: 0 8px 16px rgba(${backgroundcolor}, .6);
+        box-shadow: 0 8px 16px rgba(${getColor(backgroundColor)}, .6);
     }
     &:active {
-        box-shadow: 0 4px 8px rgba(${backgroundcolor}, .6);
+        box-shadow: 0 4px 8px rgba(${getColor(backgroundColor)}, .6);
     ]
   `}
 `;
 
 export const ColorShadowButtonLarge = css`
-  ${({ options: { backgroundcolor } }) => `
+  ${({ backgroundColor }) => `
     &:hover {
-        box-shadow: 0 16px 32px rgba(${backgroundcolor}, .6);
+        box-shadow: 0 16px 32px rgba(${getColor(backgroundColor)}, .6);
     }
     &:active {
-        box-shadow: 0 6px 12px rgba(${backgroundcolor}, .6);
+        box-shadow: 0 6px 12px rgba(${getColor(backgroundColor)}, .6);
     }
   `}
 `;
 
 export const ColorShadowButtonXLarge = css`
-  ${({ options: { backgroundcolor } }) => `
+  ${({ backgroundColor }) => `
     &:hover {
-        box-shadow: 0 24px 48px rgba(${backgroundcolor}, .6);
+        box-shadow: 0 24px 48px rgba(${getColor(backgroundColor)}, .6);
     }
     &:active {
-        box-shadow: 0 12px 24px rgba(${backgroundcolor}, .6);
+        box-shadow: 0 12px 24px rgba(${getColor(backgroundColor)}, .6);
     ]
   `}
 `;
@@ -277,30 +278,30 @@ export const getShade = color =>
     .join(',');
 
 export const Small3DButton = css`
-  ${({ options: { backgroundcolor } }) => `
+  ${({ backgroundColor }) => `
     &:hover {
       box-shadow: ${` 0 6px 0 rgba(${getTint(
-        backgroundcolor
+        getColor(backgroundColor)
       )}), 0 8px 0 rgba(0, 0, 0, .2), 2px -2px 4px  rgba(0, 0, 0, .15), 0 7px 0 rgba(0, 0, 0, .9)`};
       transform: translateY(-3px);
     }
     `}
 `;
 export const Default3DButton = css`
-  ${({ options: { backgroundcolor } }) => `
+  ${({ backgroundColor }) => `
     &:hover {
       box-shadow: ${` 0 8px 0 rgba(${getTint(
-        backgroundcolor
+        getColor(backgroundColor)
       )}), 0 10px 0 rgba(0, 0, 0, .2), 3px -3px 8px rgba(0, 0, 0, .2), 0 9px 0 rgba(0, 0, 0, .9) `};
       transform: translateY(-5px);
     }
     `}
 `;
 export const large3DButton = css`
-  ${({ options: { backgroundcolor } }) => `
+  ${({ backgroundColor }) => `
     &:hover {
       box-shadow: ${` 0 11px 0 rgba(${getTint(
-        backgroundcolor
+        getColor(backgroundColor)
       )}), 0 13px 0 rgba(0, 0, 0, .2), 4px -4px 12px rgba(0, 0, 0, .2), 0 12px 0 rgba(0, 0, 0, .9)`};
       transform: translateY(-8px);
     }
@@ -308,12 +309,33 @@ export const large3DButton = css`
 `;
 
 export const XLarge3DButton = css`
-  ${({ options: { backgroundcolor } }) => `
+  ${({ backgroundColor }) => `
     &:hover {
       box-shadow: ${` 0 15px 0 rgba(${getTint(
-        backgroundcolor
+        getColor(backgroundColor)
       )}), 0 17px 0 rgba(0, 0, 0, .2), 6px -6px 15px rgba(0, 0, 0, .2), 0 16px 0 rgba(0, 0, 0, .9)`};
       transform: translateY(-12px); 
       }
     `}
 `;
+
+export const getColor = name => {
+  if (name === BUTTON_COLORS.DARK_BLUE) return '60, 64, 198';
+  if (name === BUTTON_COLORS.LIGHT_BLUE) return '75, 207, 250';
+  if (name === BUTTON_COLORS.MINT_GREEN) return '11, 232, 129';
+  if (name === BUTTON_COLORS.GREEN) return '5, 196, 107';
+  if (name === BUTTON_COLORS.HIGHLIGHTER_PINK) return '239, 87, 119';
+  if (name === BUTTON_COLORS.SIZZLING_RED) return '245, 59, 87';
+  if (name === BUTTON_COLORS.DARK_PERIWINKLE) return '87, 95, 207';
+  if (name === BUTTON_COLORS.MEGAMAN_BLUE) return '75, 207, 250';
+  if (name === BUTTON_COLORS.TURQUOISE) return '52, 231, 228';
+  if (name === BUTTON_COLORS.CHROME_YELLOW) return '55, 168, 1';
+  if (name === BUTTON_COLORS.VIBRANT_YELLOW) return '255, 211, 42';
+  if (name === BUTTON_COLORS.SUNSET_ORANGE) return '255, 94, 87';
+  if (name === BUTTON_COLORS.DARK_GREY) return '72, 84, 96';
+  if (name === BUTTON_COLORS.MIDNIGHT_GREY) return '30, 39, 46';
+  if (name === BUTTON_COLORS.LIGHT_GREY) return '210, 218, 226';
+  if (name === BUTTON_COLORS.ORANGE) return '246, 104, 0';
+  if (name === BUTTON_COLORS.WHITE) return '255, 255, 255';
+  if (name === BUTTON_COLORS.BLACK) return '0, 0, 0';
+};
